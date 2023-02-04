@@ -5,11 +5,10 @@
   "main": "app.js",
   "author": "Kenson Johnson",
   "scripts": {
-    "dev": "vite",
+    "dev": "nodemon app.js",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node app.js",
-    "backend": "nodemon app.js"
+    "start": "node app.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
