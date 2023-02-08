@@ -1,22 +1,24 @@
-const express = require("express");
-const expressLayouts = require("express-ejs-layouts");
-const mongoose = require("mongoose");
-const flash = require("connect-flash");
-const session = require("express-session");
-const passport = require("passport");
+import express, { urlencoded } from "express";
+import expressLayouts from "express-ejs-layouts";
+import { set, connect } from "mongoose";
+import flash from "connect-flash";
+import session from "express-session";
+import passport from "passport";
+import indexRouter from "./routes/index.js";
+import usersRouter from "./routes/users.js";
 
 const app = express();
 
 // Passport config
-require("./config/passport")(passport);
+import passportConfig from "./config/passport.js";
+passportConfig(passport);
 
 // DB Config
-const db = require("./config/keys").MongoURI;
+import { db } from "./config/keys.js";
 
 // Connect to MongoDB
-mongoose.set("strictQuery", false);
-mongoose
-  .connect(db)
+set("strictQuery", false);
+connect(db)
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
@@ -25,7 +27,7 @@ app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 // Bodyparser middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(urlencoded({ extended: false }));
 
 // Express session middleware
 app.use(
@@ -51,8 +53,8 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/", require("./routes/index"));
-app.use("/users", require("./routes/users"));
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
 
 const PORT = process.env.PORT || 5000;
 

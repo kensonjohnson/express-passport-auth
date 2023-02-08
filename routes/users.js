@@ -1,10 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const bcrypt = require("bcryptjs");
-const passport = require("passport");
+import { Router } from "express";
+const router = Router();
+import bcrypt from "bcryptjs";
+import passport from "passport";
 
 // User model
-const User = require("../models/User");
+import User from "../models/User.js";
 
 // Login Page
 router.get("/login", (req, res) => {
@@ -64,7 +64,7 @@ router.post("/register", (req, res) => {
           password,
         });
         // Hash password
-        bcrypt.genSalt(10, (err, salt) =>
+        genSalt(10, (err, salt) =>
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
 
@@ -108,4 +108,4 @@ router.get("/logout", (req, res, next) => {
   });
 });
 
-module.exports = router;
+export default router;
