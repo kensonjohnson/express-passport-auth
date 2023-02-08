@@ -18,17 +18,20 @@ $ npm install
 
 ### Prepare MongoDB Connection File
 
-Create a file in config called keys.js and add the following:
+Create a file in the root directory called .env and add the following:
 
 ```
-dbPassword = 'mongodb+srv://YOUR_USERNAME:'+ encodeURIComponent('YOUR_PASSWORD') + '@CLUSTER_NAME.mongodb.net/test?retryWrites=true';
-
-module.exports = {
-    mongoURI: dbPassword
-};
+DB_CLUSTER_NAME=YOUR_CLUSTER_NAME.mongodb.net
+DB_NAME=YOUR_DB_NAME
+DB_USER=YOUR_DB_USERNAME
+DB_PASSWORD=YOUR_DB_USER_PASSWORD
 ```
 
-Replace YOUR_USERNAME, YOUR_PASSWORD, and CLUSTER_NAME with your MongoDB URI, local or Atlas information.
+Replace CLUSTER_NAME with your MongoDB URI, local or Atlas information.
+Replace YOUR_DB_NAME with the database on that cluster you want to use.
+Replace YOUR_DB_USERNAME and YOUR_DB_USER_PASSWORD with admin user info for that database.
+
+If you haven't already done so, you should add 0.0.0.0/0 to the allowed IP list until development is done. REMEMBER TO CHANGE THIS TO YOUR SERVER IP UPON DEPLOYMENT.
 
 ## Usage
 
