@@ -3,9 +3,9 @@ const router = Router();
 import { ensureAuthenticated } from "../config/auth.js";
 
 // Welcome Page
-router.get("/", (req, res) => {
-  res.render("welcome");
-});
+// router.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 
 // Dashboard
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
