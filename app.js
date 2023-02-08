@@ -1,6 +1,8 @@
 import express, { urlencoded } from "express";
 import expressLayouts from "express-ejs-layouts";
 import { set, connect } from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 import flash from "connect-flash";
 import session from "express-session";
 import passport from "passport";
@@ -13,12 +15,11 @@ const app = express();
 import passportConfig from "./config/passport.js";
 passportConfig(passport);
 
-// DB Config
-import { db } from "./config/keys.js";
-
 // Connect to MongoDB
+const mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER_NAME}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+console.log(mongoDB);
 set("strictQuery", false);
-connect(db)
+connect(mongoDB)
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
