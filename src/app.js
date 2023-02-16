@@ -10,7 +10,6 @@ import session from "express-session";
 import passport from "passport";
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
-import ViteExpress from "vite-express";
 
 const app = express();
 
@@ -25,16 +24,13 @@ connect(mongoDB)
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
-// Use Static files
-app.use(express.static("public"));
+// EJS
+app.use(expressLayouts);
+app.set("view engine", "ejs");
 
 // Change default views folder
 const __dirname = dirname(fileURLToPath(import.meta.url));
 app.set("views", path.join(__dirname, "/views"));
-
-// EJS
-app.use(expressLayouts);
-app.set("view engine", "ejs");
 
 // Bodyparser middleware
 app.use(urlencoded({ extended: false }));
@@ -68,4 +64,4 @@ app.use("/users", usersRouter);
 
 const PORT = process.env.PORT || 5000;
 
-ViteExpress.listen(app, PORT, console.log(`Server Started on port: ${PORT}`));
+app.listen(PORT, () => console.log(`Server Started on port: ${PORT}`));
