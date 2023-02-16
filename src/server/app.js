@@ -42,7 +42,7 @@ app.use(urlencoded({ extended: false }));
 // Express session middleware
 app.use(
   session({
-    secret: "My Super Secret Phrase",
+    secret: process.env.SECRET_PHRASE,
     resave: true,
     saveUninitialized: true,
   })
