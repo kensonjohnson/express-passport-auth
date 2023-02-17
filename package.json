@@ -2,13 +2,14 @@
   "name": "express-passport-auth",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": ">=18.12.1"
+  },
   "main": "app.js",
   "type": "module",
   "author": "Kenson Johnson",
   "scripts": {
     "dev": "nodemon src/app.js",
-    "build": "vite build",
-    "preview": "vite preview",
     "start": "node src/app.js"
   },
   "devDependencies": {
