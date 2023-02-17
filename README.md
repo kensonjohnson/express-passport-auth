@@ -5,37 +5,54 @@ I built this to be integrated into this project: [Carpooly](https://github.com/k
 
 ## Setup
 
-### Clone the repo and cd into the directory.
+### Clone the Repo:
 
 ```sh
 $ git clone https://github.com/kensonjohnson/express-passport-auth.git
 ```
 
-### Install packages:
+<br />
+
+### Navigate to Project and Install Packages:
 
 ```sh
+$ cd express-passport-auth
 $ npm install
 ```
+
+<br />
 
 ### Prepare MongoDB Connection File
 
 Create a file in the root directory called .env and add the following:
 
 ```
-DB_CLUSTER_NAME=YOUR_CLUSTER_NAME.mongodb.net
-DB_NAME=YOUR_DB_NAME
-DB_USER=YOUR_DB_USERNAME
-DB_PASSWORD=YOUR_DB_USER_PASSWORD
+MONGO_URI=YOUR_MONGODB_CONNECT_URI
 SECRET_PHRASE=YOUR_SECRET_PHRASE
+# Optional, remove to use default port of 5000
+PORT=YOUR_CUSTOM_PORT
 ```
 
-Replace CLUSTER_NAME with your MongoDB URI, local or Atlas information.  
-Replace YOUR_DB_NAME with the database on that cluster you want to use.  
-Replace YOUR_DB_USERNAME and YOUR_DB_USER_PASSWORD with admin user info for that database.  
-Replace YOUR_SECRET_PHRASE with literally anything you want.
-Optionally, you can add a PORT variable and set it to whatever port you would like. The default is 5000.
+Replace `MONGO_URI` with the "connect" URI given by your MongoDB provider.  
+In my testing I used Mongo Atlas.
+In my demo I use a MongoDB instance on the server.
 
-If you haven't already done so, you should add 0.0.0.0/0 to the allowed IP list until development is done. REMEMBER TO CHANGE THIS TO YOUR SERVER IP UPON DEPLOYMENT.
+Replace `YOUR_SECRET_PHRASE` with literally any string you want.
+Wrap in quotes if more than one word.
+
+Optionally, you can add a `PORT` variable and set it to whatever port you would like.
+You can remove the PORT variable altogether to use the default port of `5000`.
+
+For Mongo Atlas users:
+
+- If your IP doesn't change often, it is ok to simply add your IP to the allowed IP list in Atlas.
+
+- If your IP changes a lot (like mine), you may need to add 0.0.0.0/0 to the allowed IP list until development is done.
+  This allows connection from any IP.
+
+Remember to change this to your server's IP upon deployment.
+
+<br />
 
 ## Usage
 
