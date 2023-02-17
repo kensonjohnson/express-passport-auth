@@ -1,6 +1,7 @@
 # express-passport-auth
 
-This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
+This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS.  
+I built this to be integrated into this project: [Carpooly](https://github.com/kensonjohnson/carpooly "Link to GitHub Repo").
 
 ## Setup
 
