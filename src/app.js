@@ -39,6 +39,10 @@ app.use(urlencoded({ extended: false }));
 app.use(
   session({
     secret: process.env.SECRET_PHRASE,
+    cookie: {
+      secure: true,
+      maxAge: 60000,
+    },
     resave: true,
     saveUninitialized: true,
   })
