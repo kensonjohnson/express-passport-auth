@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import flash from "connect-flash";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import passport from "passport";
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
@@ -20,8 +21,11 @@ passportConfig(passport);
 // Connect to MongoDB
 const mongoDB = process.env.MONGO_URI;
 set("strictQuery", false);
-connect(mongoDB)
-  .then(() => console.log("MongoDB Connected..."))
+const clientPromise = connect(mongoDB)
+  .then((m) => {
+    console.log("Connected to MongoDB");
+    return m.connection.getClient();
+  })
   .catch((err) => console.log(err));
 
 // EJS
@@ -39,10 +43,9 @@ app.use(urlencoded({ extended: false }));
 app.use(
   session({
     secret: process.env.SECRET_PHRASE,
-    cookie: {
-      secure: true,
-      maxAge: 60000,
-    },
+    store: MongoStore.create({
+      clientPromise: clientPromise,
+    }),
     resave: true,
     saveUninitialized: true,
   })
