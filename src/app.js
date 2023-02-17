@@ -18,7 +18,7 @@ import passportConfig from "./config/passport.js";
 passportConfig(passport);
 
 // Connect to MongoDB
-const mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER_NAME}/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const mongoDB = process.env.MONGO_URI;
 set("strictQuery", false);
 connect(mongoDB)
   .then(() => console.log("MongoDB Connected..."))
