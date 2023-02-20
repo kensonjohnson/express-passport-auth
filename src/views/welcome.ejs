@@ -1,9 +1,101 @@
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body text-center">
-      <p>Create an account or login</p>
-      <a href="/users/register" class="btn btn-primary btn-block mb-2">Register</a>
-      <a href="/users/login" class="btn btn-secondary btn-block">Login</a>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en" class="vh-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express Auth Client</title>
+    <link href="/bootstrap.css" rel="stylesheet" />
+    <link href="/styles.css" rel="stylesheet" />
+    <script src="/bootstrap.bundle.js" defer></script>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <div href="#" class="navbar-brand d-flex align-items-center">
+            <img
+              src="/CarLogoDark.png"
+              width="40"
+              height="auto"
+              alt="Carpooly Logo"
+              class="me-3 rounded-5"
+            />
+            <strong>Carpooly Login Auth Test</strong>
+          </div>
+          <a href="/users/login" class="btn btn-outline-light">Login</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Begin page content -->
+    <main class="">
+      <div class="container my-5 mx-auto">
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <div class="card welcome-container border border-dark rounded">
+              <h3 class="card-header">Carpooly Auth Client</h3>
+              <div class="card-body fs-5">
+                <p class="fs-4">
+                  This system was built to test login flow for the Carpooly app.
+                  The app is functional and ready for testing!
+                </p>
+                <p class="card-text">
+                  Carplooly is an app to track carpool information and produce
+                  useful data to each member. The main use of this data is to
+                  track total costs and generate fair individual costs for each
+                  member. This app uses Javascript and NoSQL (MongoDB) database
+                  using. Frameworks and packages include:
+                </p>
+
+                <div
+                  class="container-sm flex-wrap d-flex gap-1 justify-content-around"
+                >
+                  <p class="border rounded px-3 py-2 btn-outline-secondary">
+                    ExpressJS
+                  </p>
+                  <p class="border rounded px-3 py-2 btn-outline-secondary">
+                    PassportJS
+                  </p>
+                  <p class="border rounded px-3 py-2 btn-outline-secondary">
+                    BcryptJS
+                  </p>
+                  <p class="border rounded px-3 py-2 btn-outline-secondary">
+                    Mongoose
+                  </p>
+                  <p class="border rounded px-3 py-2 btn-outline-secondary">
+                    Bootstrap
+                  </p>
+                </div>
+              </div>
+              <div class="card-footer d-flex flex-column fs-5 p-3 gap-3">
+                <p class="card-text text-center">
+                  Get started by logging in or creating an account below:
+                </p>
+                <a href="/users/login" class="btn btn-dark">Login</a>
+                <a href="/users/register" class="btn btn-light btn-outline-dark"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container d-flex gap-2">
+        <span class="text-muted"
+          >Created by
+          <a href="https://github.com/kensonjohnson">Kenson Johnson</a>.
+        </span>
+        <span class="text-muted"
+          >Source code can be found
+          <a href="https://github.com/kensonjohnson/express-passport-auth"
+            >here</a
+          >.</span
+        >
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "myFirstFont";
+  src: url("/bootstrap-icons/fonts/bootstrap-icons.woff2") format("woff2"),
+    url("/bootstrap-icons/fonts/bootstrap-icons.woff") format("woff");
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.input-top input[type="text"],
+.input-top input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-middle input[type="email"],
+.input-middle input[type="password"] {
+  margin-bottom: -1px;
+  border-radius: 0;
+}
+
+.input-bottom input[type="password"],
+.input-bottom input[type="password2"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.welcome-container {
+  min-width: 540px;
+  max-width: 760px;
+}

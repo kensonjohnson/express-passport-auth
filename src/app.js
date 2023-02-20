@@ -1,5 +1,4 @@
 import express, { urlencoded } from "express";
-import expressLayouts from "express-ejs-layouts";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import { set, connect } from "mongoose";
@@ -28,8 +27,10 @@ const clientPromise = connect(mongoDB)
   })
   .catch((err) => console.log(err));
 
+// Cofigure the "public" directory as static
+app.use(express.static("public"));
+
 // EJS
-app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 // Change default views folder
